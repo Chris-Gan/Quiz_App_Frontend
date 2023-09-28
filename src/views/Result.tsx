@@ -20,6 +20,7 @@ const Result = () => {
     const [showSnackbar, setShowSnackbar] = useState(false);
     const [showCorrectAnswers, setShowCorrectAnswers] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const restart = () => {
         sessionStorage.removeItem('context');
@@ -53,6 +54,7 @@ const Result = () => {
         setScore(tempScore);
     };
     useEffect(() => {
+        setIsLoading(true);
         if (questionArr) {
             getResults(questionArr)
                 .then((res) => {
@@ -65,6 +67,7 @@ const Result = () => {
                 })
                 .catch((err) => console.log(err));
         }
+        setIsLoading(false);
     }, []);
 
     return (
@@ -101,7 +104,7 @@ const Result = () => {
                 <CardMedia component="img" sx={{ width: 220 }} image="./result.png" />
             </Card>
             {showCorrectAnswers && <Answer questionsWithAnswer={questionsWithAnswer} />}
-            <CircularLoader isLoading={isSubmitting} />
+            <CircularLoader isLoading={isSubmitting || isLoading} />
         </>
     );
 };
