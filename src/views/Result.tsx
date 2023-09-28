@@ -38,9 +38,9 @@ const Result = () => {
             putParticipant(userDetails.id, modifiedUserDetails).then(() => {
                 setShowSnackbar(true);
                 setShowCorrectAnswers(true);
+                setIsSubmitting(false);
             });
         }
-        setIsSubmitting(false);
     };
 
     const closeSnackbar = () => {
