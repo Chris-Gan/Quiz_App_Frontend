@@ -64,10 +64,10 @@ const Result = () => {
                     })) as QuizPersonalAndActualAnswer[];
                     setQuestionsWithAnswer(qna);
                     calculateScore(qna);
+                    setIsLoading(false);
                 })
                 .catch((err) => console.log(err));
         }
-        setIsLoading(false);
     }, []);
 
     return (
