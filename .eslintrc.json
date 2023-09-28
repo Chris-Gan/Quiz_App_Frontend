@@ -31,7 +31,9 @@
             }
         ],
         "react/jsx-props-no-spreading": [2, { "custom": "ignore" }],
-        "no-console": "off"
+        "no-console": "off",
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off"
     },
     "settings": {
         "import/resolver": {
