@@ -5,17 +5,18 @@ export interface SingleQuizAnswer {
 export interface QuizContextInterface {
     timeTaken: number | null;
     selectedOptions: SingleQuizAnswer[] | null;
+    questionsWithAnswers: QuizPersonalAndActualAnswer[] | null;
+    areAnswersDisplayed: boolean;
+    score: number | null;
+}
+export interface QuizAnswerResponse extends QuestionInterface {
+    answer: number;
 }
 
-export interface QuestionInteface {
+export type QuizPersonalAndActualAnswer = QuizAnswerResponse | SingleQuizAnswer;
+export interface QuestionInterface {
     id: number;
     questionWords: string;
     imageName: string;
     options: string[];
 }
-
-export interface QuizAnswerResponse extends QuestionInteface {
-    answer: number;
-}
-
-export type QuizPersonalAndActualAnswer = QuizAnswerResponse | SingleQuizAnswer;
